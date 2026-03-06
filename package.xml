@@ -20,15 +20,28 @@
   <author>Ken Conley</author>
   <author>Dirk Thomas</author>
 
-  <buildtool_depend version_gte="0.5.74">catkin</buildtool_depend>
+  <!-- <buildtool_depend version_gte="0.5.78">catkin</buildtool_depend> -->
   <buildtool_depend condition="$ROS_PYTHON_VERSION == 2">python-setuptools</buildtool_depend>
   <buildtool_depend condition="$ROS_PYTHON_VERSION == 3">python3-setuptools</buildtool_depend>
-  <exec_depend>catkin</exec_depend>
-  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-empy</exec_depend>
-  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-empy</exec_depend>
 
-  <export>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 2">python-yaml</exec_depend>
+  <exec_depend condition="$ROS_PYTHON_VERSION == 3">python3-yaml</exec_depend>
+
+  <test_depend condition="$ROS_PYTHON_VERSION == 2">python-numpy</test_depend>
+  <test_depend condition="$ROS_PYTHON_VERSION == 3">python3-numpy</test_depend>
+
+  <!-- These test dependencies are optional
+  Their purpose is to make sure that the code passes the linters -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <!-- <export>
+    <message_generator>py</message_generator>
     <rosdoc config="rosdoc.yaml"/>
     <architecture_independent/>
+  </export> -->
+  <export>
+    <build_type>ament_python</build_type>
   </export>
 </package>
